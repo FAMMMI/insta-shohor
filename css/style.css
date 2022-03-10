@@ -256,3 +256,11 @@ img {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/* extra */
+
+.question-answer{
+  width: 100;
+  margin-top: 50px;
+  margin-left: 50px;
+}
