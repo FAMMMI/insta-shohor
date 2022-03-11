@@ -16,7 +16,10 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
+  // love button related bug fixed 
   likedPostsId.push(id);
+  // optional
+  // to fix the auto reload of all post if love button is clicked in any post after report button 
   const lovedPost = posts.filter((post) => !reportedPostsId.includes(post.id));
   showPosts(lovedPost);
 };
@@ -28,6 +31,7 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
+  // comment related bug fixed
   return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
@@ -36,6 +40,7 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    // question-answer related bug fixed [bonus]
     document.getElementById('question-answer').style.display = 'block';
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
@@ -144,6 +149,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  // liked post mltiplification related bg fixed
   document.getElementById("liked").textContent = '';
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
@@ -153,6 +159,7 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  // optional reported post muultiplication related bug fixed 
   document.getElementById("reported").textContent = '';
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
